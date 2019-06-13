@@ -22,6 +22,7 @@ defmodule HelloWeb do
       use Phoenix.Controller, namespace: HelloWeb
       import Plug.Conn
       import HelloWeb.Gettext
+      import Phoenix.LiveView.Controller, only: [live_render: 3]
       alias HelloWeb.Router.Helpers, as: Routes
     end
   end
@@ -40,6 +41,7 @@ defmodule HelloWeb do
 
       import HelloWeb.ErrorHelpers
       import HelloWeb.Gettext
+      import Phoenix.LiveView, only: [live_render: 2, live_render: 3]
       alias HelloWeb.Router.Helpers, as: Routes
     end
   end
@@ -49,6 +51,7 @@ defmodule HelloWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 

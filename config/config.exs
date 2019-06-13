@@ -22,7 +22,8 @@ config :hello_web, HelloWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "JQ/tn4vM/UDSW/BkHsotJKRpvugZMOGuL51u/j8LzYjIh+elejWrL7jgEt8vZIdt",
   render_errors: [view: HelloWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: HelloWeb.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: HelloWeb.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [signing_salt: "ocTXpth0f5sJXzeTM/pMjwru7sEovqHf"]
 
 # Configures Elixir's Logger
 config :logger, :console,
