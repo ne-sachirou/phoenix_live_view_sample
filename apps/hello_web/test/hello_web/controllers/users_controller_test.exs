@@ -75,6 +75,7 @@ defmodule HelloWeb.UsersControllerTest do
     test "deletes chosen users", %{conn: conn, users: users} do
       conn = delete(conn, Routes.users_path(conn, :delete, users))
       assert redirected_to(conn) == Routes.users_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.users_path(conn, :show, users))
       end

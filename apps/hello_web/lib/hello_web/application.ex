@@ -6,12 +6,15 @@ defmodule HelloWeb.Application do
   use Application
 
   def start(_type, _args) do
+    :ets.new(:session, [:named_table, :public, read_concurrency: true])
+
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      HelloWeb.Endpoint
+      HelloWeb.Endpoint,
       # Starts a worker by calling: HelloWeb.Worker.start_link(arg)
       # {HelloWeb.Worker, arg},
+      {Registry, keys: :duplicate, name: HelloWeb.Registry.Room}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

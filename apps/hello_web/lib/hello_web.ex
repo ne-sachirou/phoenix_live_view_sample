@@ -57,7 +57,7 @@ defmodule HelloWeb do
 
   def channel do
     quote do
-      use Phoenix.Channel
+      use Phoenix.Channel, log_join: :info, log_handle_in: :debug
       import HelloWeb.Gettext
     end
   end

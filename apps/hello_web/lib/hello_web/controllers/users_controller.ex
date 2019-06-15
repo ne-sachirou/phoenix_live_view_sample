@@ -5,6 +5,8 @@ defmodule HelloWeb.UsersController do
   alias Hello.Accounts.Users
 
   def index(conn, _params) do
+    {current_user_id, conn} = HelloWeb.Session.current_user_id(conn)
+    conn = assign(conn, :current_user_id, current_user_id)
     users = Accounts.list_users()
     render(conn, "index.html", users: users)
   end
